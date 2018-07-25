@@ -10,11 +10,11 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    this.getBooks("");
+    this.getData("");
   }
 
   getData = async search => {
-    const response = await fetch(process.env.REACT_APP_BOOKS_API||"//http:localhost:3000/books");
+    const response = await fetch(process.env.REACT_APP_BOOKS_API||"http://localhost:3000/books");
     const bookData = await response.json();
     this.setState({ books: bookData });
   };
@@ -22,7 +22,7 @@ class App extends Component {
     return (
       <div>
         {this.state.books.map((book, i) => {
-          return<li> book.title</li>;
+          return<li> {book.title}</li>;
         })}
       </div>
     );
