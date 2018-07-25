@@ -14,7 +14,8 @@ class App extends Component {
   }
 
   getData = async search => {
-    const response = await fetch(process.env.REACT_APP_BOOKS_API||"http://localhost:3000/books");
+    const url =process.env.REACT_APP_BOOKS_API||"http://localhost:3000/books"
+    const response = await fetch(url);
     const bookData = await response.json();
     this.setState({ books: bookData });
   };
