@@ -1,29 +1,39 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-
+const API_HOST = process.env.REACT_APP_BOOKS_API || "http://localhost:3000";
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      books: []
+      books: [],
+      authors: []
     };
   }
   componentDidMount() {
-    this.getData("");
+    this.getBooks("");
+    this.getAuthors("");
   }
 
-  getData = async search => {
-    const url =process.env.REACT_APP_BOOKS_API||"http://localhost:3000/books"
+  getBooks = async search => {
+    const url = `${API_HOST}/books`;
     const response = await fetch(url);
     const bookData = await response.json();
     this.setState({ books: bookData });
   };
+
+  getAuthors = async search => {
+    const url = `${API_HOST}/authors`;
+    const response = await fetch(url);
+    const authorsData = await response.json();
+    this.setState({ authors: authorsData });
+  };
+
   render() {
     return (
       <div>
         {this.state.books.map((book, i) => {
-          return<li> {book.title}</li>;
+          return <li> {book.title}</li>;
         })}
       </div>
     );
