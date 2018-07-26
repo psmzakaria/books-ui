@@ -13,16 +13,25 @@ class Book extends Component {
 
   getBooks = async search => {
     const url = `${API_HOST}/books`;
-    const response = await fetch(url);
-    const bookData = await response.json();
-    this.setState({ books: bookData });
+    // const response = await fetch(url);
+    // const bookData = await response.json();
+    // this.setState({ books: bookData });
+
+    this.setState({
+      books: [
+        {
+          title: "HARRY POTTER",
+          _id: "23094823048"
+        }
+      ]
+    });
   };
 
   render() {
     return (
       <div>
-        {this.state.books.map((book, i) => {
-          return <li> {book.title}</li>;
+        {this.state.books.map((book) => {
+          return <li key ={book._id}> {book.title}</li>;
         })}
       </div>
     );

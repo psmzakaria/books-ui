@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the Authors component of the app  1`] = `
+<div>
+  
+</div>
+`;
+
+exports[`renders the book component of the app  1`] = `
+<div>
+  
+</div>
+`;
