@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 const API_HOST = process.env.REACT_APP_BOOKS_API || "http://localhost:3000";
 class Author extends Component {
   constructor() {
@@ -20,8 +20,8 @@ class Author extends Component {
   render() {
     return (
       <div>
-        {this.state.authors.map((author, i) => {
-          return <li> {author.name}</li>;
+        {this.state.authors.map(author => {
+          return <li key={author._id}> {author.name}</li>;
         })}
       </div>
     );
